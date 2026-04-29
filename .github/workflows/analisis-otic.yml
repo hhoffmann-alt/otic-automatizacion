@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout del repositorio
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Configurar Python
         uses: actions/setup-python@v4
@@ -26,14 +26,4 @@ jobs:
       - name: Ejecutar Colab OTIC
         env:
           COLAB_NOTEBOOK_ID: '1F9kP9IH89wewuDSAgCFdK8e1vArtttuj'
-        run: |
-          python execute_colab.py
-
-      - name: Subir logs de ejecución
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: execution-logs
-          path: |
-            *.log
-          retention-days: 30
+        run: python execute_colab.py
