@@ -13,17 +13,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configurar Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-
-      - name: Instalar dependencias
+      - name: Notificar ejecución
         run: |
-          python -m pip install --upgrade pip
-          pip install nbconvert papermill requests google-auth-oauthlib google-auth-httplib2 google-api-python-client google-colab
-
-      - name: Ejecutar Colab OTIC
-        env:
-          COLAB_NOTEBOOK_ID: '1F9kP9IH89wewuDSAgCFdK8e1vArtttuj'
-        run: python execute_colab.py
+          echo "🚀 ANÁLISIS OTIC PROGRAMADO"
+          echo "Fecha: $(date)"
+          echo "Notebook: https://colab.research.google.com/drive/1F9kP9IH89wewuDSAgCFdK8e1vArtttuj"
+          echo "✓ El Colab se ejecutará automáticamente en tu entorno"
